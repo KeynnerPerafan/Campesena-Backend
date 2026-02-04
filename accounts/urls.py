@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from .views import AdminUserViewSet
 from .views_auth import LoginView
-from .views_me import MeView  # te explico abajo
+from .views_me import MeView
 
 router = DefaultRouter()
 router.register(r"admin/users", AdminUserViewSet, basename="admin-users")
