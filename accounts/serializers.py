@@ -17,6 +17,8 @@ class UserCreateSerializer(serializers.ModelSerializer):
             "last_name",
             "role",
             "phone",
+            "document_type",
+            "document_number",
             "document_id",
             "is_active",
         ]
