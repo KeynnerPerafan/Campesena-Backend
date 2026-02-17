@@ -45,6 +45,10 @@ class CaseViewSet(viewsets.ModelViewSet):
             return CaseCreateSerializer
 
         if self.action in ["update", "partial_update"]:
+            user = self.request.user
+            if user.role in ["ADMIN", "GESTOR"]:
+                from .serializers import CaseAdminUpdateSerializer
+                return CaseAdminUpdateSerializer
             return CaseUpdateSerializer
 
         return CaseSerializer

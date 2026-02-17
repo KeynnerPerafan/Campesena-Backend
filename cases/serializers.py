@@ -94,6 +94,16 @@ class CaseUpdateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Esta solicitud no se puede editar en el estado actual.")
         return attrs
 
+class CaseAdminUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Case
+        fields = ["status"]
+
+    def validate(self, attrs):
+        # Aquí puedes meter reglas de transición si quieres (opcional)
+        return attrs
+
+
 class CaseListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Case
